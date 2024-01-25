@@ -5,18 +5,23 @@ using std::endl;
 // ------------------- C++ Class Friends ----------------------------------------------------------
 //ref link:https://www.youtube.com/watch?v=7N4qcBcLTKU&list=PLRwVmtr-pp077ESC0tAC331LxLaDa5A57&index=4
 
+// Class Friends - helps in incapsulation
+
 // << is called stream insertion operator
 // cout: is an output stream, sending data out the console
 
-struct Vector		// algebra/trigonometry knowledge required	// ideally this must be .h file or .cpp file
+class Vector		// class is defualt to private
+//struct Vector		// algebra/trigonometry knowledge required	// ideally this must be .h file or .cpp file
 {
+//public:	//solution for making class public inside scope of datamembers and below 
 	int x;			// Notice:float is default type for vector
 	int y;
+public:			// constructor public 
 	Vector(int x = 0, int y = 0) : x(x), y(y) {}
 };
-//------------declaration-----------------------
-Vector operator+(const Vector& left, const Vector& right);
-std::ostream& operator<<(std::ostream& stream, const Vector& right); 
+
+Vector operator+(const Vector& left, const Vector& right);				//declaration
+std::ostream& operator<<(std::ostream& stream, const Vector& right); 	//declaration
 
 //Vector operator+(const Vector& left, const Vector& right)
 //{
@@ -53,7 +58,7 @@ Vector operator+(const Vector& left, const Vector& right)	//function header
 	return ret;
 }
 
-std::ostream& operator<<(std::ostream& stream, const Vector& right)	//function header
+std::ostream& operator<<(std::ostream& stream, const Vector& right)	//function header or leftshift function
 {
 	cout << "{" << right.x << ", " << right.y << "}";
 	return stream;
