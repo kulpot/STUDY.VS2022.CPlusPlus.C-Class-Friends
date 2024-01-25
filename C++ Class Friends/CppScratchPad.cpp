@@ -8,7 +8,7 @@ using std::endl;
 // << is called stream insertion operator
 // cout: is an output stream, sending data out the console
 
-struct Vector		// algebra/trigonometry knowledge required
+struct Vector		// algebra/trigonometry knowledge required	// ideally this must be .h file or .cpp file
 {
 	int x;			// Notice:float is default type for vector
 	int y;
@@ -23,18 +23,26 @@ Vector operator+(const Vector& left, const Vector& right)
 	return ret;
 }
 
+std::ostream& operator<<(std::ostream& stream, const Vector& right);
 
-std::ostream& operator<<(std::ostream& stream, const Vector& right)
-{
-	cout << "{" << right.x << ", " << right.y << "}";	
-	return stream;	
-}
+
+//std::ostream& operator<<(std::ostream& stream, const Vector& right)
+//{
+//	cout << "{" << right.x << ", " << right.y << "}";	
+//	return stream;	
+//}
 
 void main()
 {
 	Vector first(1, 2), second(3, 4);
 	Vector result = first + second;		
 	cout << first << " + " << second << " = " << result << endl;
+}
+
+std::ostream& operator<<(std::ostream& stream, const Vector& right)	//function header
+{
+	cout << "{" << right.x << ", " << right.y << "}";
+	return stream;
 }
 
 
