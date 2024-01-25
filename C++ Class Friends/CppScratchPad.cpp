@@ -14,17 +14,17 @@ struct Vector		// algebra/trigonometry knowledge required	// ideally this must b
 	int y;
 	Vector(int x = 0, int y = 0) : x(x), y(y) {}
 };
+//------------declaration-----------------------
+Vector operator+(const Vector& left, const Vector& right);
+std::ostream& operator<<(std::ostream& stream, const Vector& right); 
 
-Vector operator+(const Vector& left, const Vector& right)
-{
-	Vector ret;
-	ret.x = left.x + right.x;
-	ret.y = left.y + right.y;
-	return ret;
-}
-
-std::ostream& operator<<(std::ostream& stream, const Vector& right);
-
+//Vector operator+(const Vector& left, const Vector& right)
+//{
+//	Vector ret;
+//	ret.x = left.x + right.x;
+//	ret.y = left.y + right.y;
+//	return ret;
+//}
 
 //std::ostream& operator<<(std::ostream& stream, const Vector& right)
 //{
@@ -37,6 +37,20 @@ void main()
 	Vector first(1, 2), second(3, 4);
 	Vector result = first + second;		
 	cout << first << " + " << second << " = " << result << endl;
+}
+
+
+
+
+
+
+
+Vector operator+(const Vector& left, const Vector& right)	//function header
+{
+	Vector ret;
+	ret.x = left.x + right.x;
+	ret.y = left.y + right.y;
+	return ret;
 }
 
 std::ostream& operator<<(std::ostream& stream, const Vector& right)	//function header
